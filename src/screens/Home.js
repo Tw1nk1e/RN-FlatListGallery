@@ -2,13 +2,21 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { View, Image, FlatList, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import {
+  View,
+  Image,
+  FlatList,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  LayoutAnimation,
+} from 'react-native';
 
 import Item from '../components/Item/index';
 import data from '../constants/data';
 import { images } from '../constants/picture';
 
 import { getHeaderHeight } from '../utils/headerHelper';
+import { CustomLayoutAnimation } from '../constants/animationConfig';
 
 type Props = {
   navigation: any,
@@ -28,7 +36,6 @@ class Home extends PureComponent <Props, State> {
   static navigationOptions = ({ navigation }: {navigation: any}) => {
     const { state } = navigation;
     const isButtonView = state.params && state.params.isButtonView;
-    console.log(isButtonView, 'navigate');
     return {
       headerLeft: () => (isButtonView ? (
         <TouchableWithoutFeedback
@@ -64,6 +71,7 @@ class Home extends PureComponent <Props, State> {
       someItemSelect: !someItemSelect,
     }, () => {
       navigation.setParams({ isButtonView: !navigation.state.params.isButtonView });
+      LayoutAnimation.configureNext(CustomLayoutAnimation);
     });
   }
 
