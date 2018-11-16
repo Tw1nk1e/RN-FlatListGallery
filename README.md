@@ -1,6 +1,6 @@
 # RN-FlatListGallery
 
-![](name-of-giphy.gif)
+![](example.gif)
 
 Install
   -yarn install
