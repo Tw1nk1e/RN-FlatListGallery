@@ -3,7 +3,7 @@
 import { LayoutAnimation } from 'react-native';
 
 export const CustomLayoutAnimation = {
-  duration: 25,
+  duration: 250,
   create: {
     type: LayoutAnimation.Types.linear,
     property: LayoutAnimation.Properties.opacity,
